@@ -1,5 +1,5 @@
 import json
-import requests
+from security import safe_requests
 
 
 class SimFin:
@@ -28,7 +28,7 @@ class SimFin:
             "fyear": fyear,
             "period": period,
         }
-        response = requests.get(f"{self.url}/companies/statements/compact", headers=headers, params=params)
+        response = safe_requests.get(f"{self.url}/companies/statements/compact", headers=headers, params=params)
 
         if response.status_code != 200:
             raise Exception(
