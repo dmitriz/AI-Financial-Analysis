@@ -18,7 +18,7 @@ class Ollama:
             "stream": False,
         }
 
-        response = requests.post(url, json=data, headers=headers)
+        response = requests.post(url, json=data, headers=headers, timeout=60)
         response.raise_for_status()
         return response.json()["message"]['content']
 
@@ -33,7 +33,7 @@ class Ollama:
             "model": "nomic-embed-text",
         }
 
-        response = requests.post(url, json=data, headers=headers)
+        response = requests.post(url, json=data, headers=headers, timeout=60)
         response.raise_for_status()
         return response.json()["embedding"]
 
@@ -54,6 +54,6 @@ class Ollama:
             "stream": False,
         }
 
-        response = requests.post(url, json=data, headers=headers)
+        response = requests.post(url, json=data, headers=headers, timeout=60)
         response.raise_for_status()
         return response.json()["response"]

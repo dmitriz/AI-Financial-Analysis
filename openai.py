@@ -22,5 +22,5 @@ class OpenAI:
             "user": "self",
         }
 
-        response = requests.post(url, json=data, headers=headers)
+        response = requests.post(url, json=data, headers=headers, timeout=60)
         return response.json()["choices"][0]["message"]["content"]

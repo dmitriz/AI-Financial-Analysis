@@ -28,7 +28,7 @@ class SimFin:
             "fyear": fyear,
             "period": period,
         }
-        response = requests.get(f"{self.url}/companies/statements/compact", headers=headers, params=params)
+        response = requests.get(f"{self.url}/companies/statements/compact", headers=headers, params=params, timeout=60)
 
         if response.status_code != 200:
             raise Exception(
